@@ -1,48 +1,11 @@
-import AppIcon from "@/components/AppIcon";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import AppBar from "@/components/AppBar";
 
 export default function Home() {
   return (
     <main>
       <div className="min-h-screen bg-slate-50 text-slate-800 font-sans">
         {/* Header */}
-        <header className="bg-slate-800 text-white shadow-md">
-          <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div className="flex items-center space-x-2">
-              <AppIcon />
-              <h1 className="text-2xl font-bold">RuralMed</h1>
-            </div>
-            <nav>
-              <ul className="flex space-x-6">
-                <li>
-                  <a
-                    href="#features"
-                    className="hover:text-blue-500 transition"
-                  >
-                    Features
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#how-it-works"
-                    className="hover:text-blue-500 transition"
-                  >
-                    How It Works
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#download"
-                    className="hover:text-blue-500 transition"
-                  >
-                    Login
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </header>
+        <AppBar />
 
         {/* Hero Section */}
         <section className="bg-slate-700 text-white min-h-screen">
@@ -52,8 +15,9 @@ export default function Home() {
                 Healthcare Access for Rural Communities
               </h2>
               <p className="text-slate-200 text-2xl mb-14">
-                Connect with doctors, access medical services, get expert consultaions and advices, and manage
-                healthcare needs—even in remote areas with limited connectivity.
+                Connect with doctors, access medical services, get expert
+                consultaions and advices, and manage healthcare needs—even in
+                remote areas with limited connectivity.
               </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <a

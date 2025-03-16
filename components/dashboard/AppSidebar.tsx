@@ -13,6 +13,7 @@ import {
   SidebarSeparator,
 } from "../ui/sidebar";
 import { UserSearch, Stethoscope, File } from "lucide-react";
+import { SignedIn, UserButton } from "@clerk/nextjs";
 
 export default function AppSidebar() {
   const serviceItems = [
@@ -76,7 +77,7 @@ export default function AppSidebar() {
               >
                 <SidebarMenuButton asChild className="hover:bg-gray-200">
                   <a href={item.url}>
-                    <item.icon/>
+                    <item.icon />
                     <span className="text-md font-semibold">{item.title}</span>
                   </a>
                 </SidebarMenuButton>
@@ -87,14 +88,16 @@ export default function AppSidebar() {
       </SidebarContent>
       <SidebarFooter className="px-4 py-3">
         <div className="flex flex-row gap-2">
-            <Avatar className="w-1/5 rounded-md">
-                <AvatarImage className="rounded-md" src="https://github.com/shacn.png" />
-                <AvatarFallback>UA</AvatarFallback>
-            </Avatar>
-            <div className="w-4/5 flex flex-col justify-center">
-                <div className="text-sm font-bold">Utkarsh Anandani</div>
-                <div className="text-xs truncate">utkarshanandani9@gmail.com</div>
-            </div>
+          <SignedIn>
+            <UserButton
+              userProfileMode="navigation"
+              userProfileUrl="/dashboard/profile"
+            />
+          </SignedIn>
+          <div className="w-4/5 flex flex-col justify-center">
+            <div className="text-sm font-bold">Utkarsh Anandani</div>
+            <div className="text-xs truncate">utkarshanandani9@gmail.com</div>
+          </div>
         </div>
       </SidebarFooter>
     </Sidebar>
