@@ -22,7 +22,7 @@ export default function ProfileData(props: any) {
               {props.details?.countryCode} {props.details?.phoneNumber}
             </span>
             <SignOutButton>
-              <div className="bg-slate-500 text-white text-center rounded-md flex flex-row items-center justify-center gap-2 mt-3 px-2 py-1 text-xs">
+              <div className="bg-slate-500 text-white text-center rounded-md flex flex-row items-center justify-center gap-2 mt-3 px-2 py-1 text-xs cursor-pointer">
                 <span>Sign Out</span>
                 <LogOutIcon className="w-4" />
               </div>

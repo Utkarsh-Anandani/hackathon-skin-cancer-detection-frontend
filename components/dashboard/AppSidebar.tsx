@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
+'use client';
 import AppIcon from "../AppIcon";
 import {
   Sidebar,
@@ -13,9 +13,43 @@ import {
   SidebarSeparator,
 } from "../ui/sidebar";
 import { UserSearch, Stethoscope, File } from "lucide-react";
-import { SignedIn, UserButton } from "@clerk/nextjs";
+import { SignedIn, UserButton, useUser } from "@clerk/nextjs";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useUserContext } from "@/app/context/UserContext";
 
 export default function AppSidebar() {
+  const { user } = useUser();
+  const { userDetails, setUserDetails } = useUserContext();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (!user) return;
+
+    const getUserDetails = async () => {
+      try {
+        const phoneNumber = user.phoneNumbers?.[0]?.phoneNumber;
+        if (!phoneNumber) throw new Error("Phone number not available");
+
+        const formattedPhone = phoneNumber.substring(3);
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_SERVER_URI}/api/profile?phone=${formattedPhone}`
+        );
+        if (response.data.success) {
+          setUserDetails(response.data.data);
+          setIsLoading(false);
+        } else {
+          setIsLoading(false);
+        }
+      } catch (err) {
+        console.error("Error fetching user details:", err);
+      }
+    };
+
+    getUserDetails();
+    return () => setUserDetails(null);
+  }, [user]);
+
   const serviceItems = [
     {
       title: "Skin Cancer Detection",
@@ -94,10 +128,18 @@ export default function AppSidebar() {
               userProfileUrl="/dashboard/profile"
             />
           </SignedIn>
-          <div className="w-4/5 flex flex-col justify-center">
-            <div className="text-sm font-bold">Utkarsh Anandani</div>
-            <div className="text-xs truncate">utkarshanandani9@gmail.com</div>
-          </div>
+          {userDetails ? (
+            <div className="w-4/5 flex flex-col justify-center">
+              <div className="text-sm font-bold">{userDetails?.fullName}</div>
+              <div className="text-xs truncate">{userDetails?.phoneNumber}</div>
+            </div>
+          ) : (
+            <div className="w-4/5 flex flex-col justify-center">
+              <div className="text-sm font-bold">
+                {user?.phoneNumbers[0]?.phoneNumber}
+              </div>
+            </div>
+          )}
         </div>
       </SidebarFooter>
     </Sidebar>
