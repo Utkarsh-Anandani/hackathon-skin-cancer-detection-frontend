@@ -25,7 +25,7 @@ Refer to the [INSTALLATION.md](#) file in this repository for step-by-step instr
 - **Python:** 3.11.9  
 
 ## Demo Video
-[Link to Demo Video](#)
+[Link to Demo Video](https://drive.google.com/file/d/1RuH8nT3ol3uwUvAOqoMVTvz_5IexibS2/view?usp=sharing)
 
 ## API Collection
 [Link to API Collection](https://www.postman.com/utkarsh-anandani/e-hackathon/overview)
