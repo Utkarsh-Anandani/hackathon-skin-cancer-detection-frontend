@@ -17,7 +17,7 @@ Our solution is a powerful medical tool designed specifically for rural and remo
 - [Flask Backend Repository](https://github.com/Utkarsh-Anandani/hackathon-skin-cancer-detection-DL-backend)
 
 ## Installation Guide
-Refer to the [INSTALLATION.md](#) file in this repository for step-by-step instructions on setting up the project.
+Refer to the [INSTALLATION.md](https://github.com/Utkarsh-Anandani/hackathon-skin-cancer-detection-frontend/blob/main/INSTALLATION.md) file in this repository for step-by-step instructions on setting up the project.
 
 ## Software Versions
 - **Node.js:** 21.7.3  

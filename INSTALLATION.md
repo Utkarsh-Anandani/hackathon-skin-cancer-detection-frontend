@@ -4,7 +4,7 @@
 - Node - 21.7.3
 - npm - 10.5.0
 
-## Frontend (FE) Setup
+## [Frontend (FE) Setup](https://github.com/Utkarsh-Anandani/hackathon-skin-cancer-detection-frontend)
 
 ### Clone the Repository
 ```bash
@@ -33,7 +33,7 @@ npm run dev
 
 ---
 
-## Backend (BE) Setup
+## [Backend (BE) Setup](https://github.com/Utkarsh-Anandani/hackathon-skin-cancer-detection-backend)
 
 ### Clone the Repository
 ```bash
@@ -62,7 +62,7 @@ npm run dev
 
 ---
 
-## Deep Learning (Flask) Backend Setup
+## [Deep Learning (Flask) Backend Setup](https://github.com/Utkarsh-Anandani/hackathon-skin-cancer-detection-DL-backend)
 
 ### Clone the Repository
 ```bash
