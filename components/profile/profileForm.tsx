@@ -15,7 +15,6 @@ import { Button } from "../ui/button";
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
-import { redirect } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
 
 export default function ProfileForm() {

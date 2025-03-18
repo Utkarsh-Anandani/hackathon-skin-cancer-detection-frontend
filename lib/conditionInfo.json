@@ -1,0 +1,92 @@
+{
+  "Melanocytic nevi": {
+    "description": "Commonly known as moles, these are usually benign growths on the skin caused by clusters of pigmented cells.",
+    "potential_causes": [
+      "Genetics",
+      "Excessive sun exposure",
+      "Hormonal changes"
+    ],
+    "precautions": [
+      "Use sunscreen with SPF 30 or higher",
+      "Avoid excessive sun exposure",
+      "Monitor for changes in shape, size, or color"
+    ],
+    "danger_scale": 2
+  },
+  "Melanoma": {
+    "description": "A serious and aggressive form of skin cancer that develops in the cells that produce melanin.",
+    "potential_causes": [
+      "Prolonged UV exposure",
+      "Family history",
+      "Weakened immune system"
+    ],
+    "precautions": [
+      "Regular skin checks",
+      "Avoid tanning beds",
+      "Wear protective clothing in the sun"
+    ],
+    "danger_scale": 5
+  },
+  "Benign keratosis-like lesions": {
+    "description": "Non-cancerous skin growths that often appear as rough, scaly patches.",
+    "potential_causes": ["Aging", "Sun damage", "Genetic predisposition"],
+    "precautions": [
+      "Moisturize skin regularly",
+      "Avoid excessive sun exposure",
+      "Use gentle exfoliants"
+    ],
+    "danger_scale": 2
+  },
+  "Basal cell carcinoma": {
+    "description": "A common type of skin cancer that grows slowly and is unlikely to spread.",
+    "potential_causes": [
+      "Chronic sun exposure",
+      "Fair skin",
+      "History of skin injuries"
+    ],
+    "precautions": [
+      "Use broad-spectrum sunscreen",
+      "Wear protective clothing outdoors",
+      "Seek early medical consultation if unusual growths appear"
+    ],
+    "danger_scale": 4
+  },
+  "Actinic keratoses": {
+    "description": "Rough, scaly patches on the skin caused by years of sun exposure, often considered precancerous.",
+    "potential_causes": [
+      "Chronic UV exposure",
+      "Fair skin",
+      "Weakened immune system"
+    ],
+    "precautions": [
+      "Wear wide-brimmed hats and sunglasses",
+      "Apply sunscreen daily",
+      "Regular dermatologist check-ups"
+    ],
+    "danger_scale": 3
+  },
+  "Vascular lesions": {
+    "description": "Abnormal blood vessels that appear as red or purple marks on the skin.",
+    "potential_causes": ["Birthmarks", "Hormonal changes", "Skin injuries"],
+    "precautions": [
+      "Use soothing creams for irritation",
+      "Consider laser treatments for cosmetic concerns",
+      "Consult a dermatologist for evaluation"
+    ],
+    "danger_scale": 2
+  },
+  "Dermatofibroma": {
+    "description": "A common benign skin nodule that often appears as a firm bump, usually harmless.",
+    "potential_causes": [
+      "Insect bites",
+      "Minor skin injuries",
+      "Unknown causes"
+    ],
+    "precautions": [
+      "Monitor for growth or change in color",
+      "Avoid picking or scratching",
+      "Seek medical advice if pain or irritation occurs"
+    ],
+    "danger_scale": 1
+  }
+}
