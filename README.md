@@ -9,7 +9,8 @@ Our solution is a powerful medical tool designed specifically for rural and remo
 - **AI Doctor Chatbot** for quick medical advice and assistance.
 - **Future Implementation** of pneumonia detection and diagnosis via SMS for regions with low or no internet connectivity.
 
-![Architecture Diagram](#)
+![Architecture Diagram](![Architecture](https://github.com/user-attachments/assets/0319ca8c-52f4-4f8a-a4d5-14476afc28b4)
+)
 
 ## Repositories
 - [Frontend Repository](https://github.com/Utkarsh-Anandani/hackathon-skin-cancer-detection-frontend)
@@ -28,7 +29,7 @@ Refer to the [INSTALLATION.md](#) file in this repository for step-by-step instr
 [Link to Demo Video](#)
 
 ## API Collection
-[Link to API Collection](#)
+[Link to API Collection]([#](https://www.postman.com/utkarsh-anandani/e-hackathon/overview))
 
 ## Usage Instructions
 1. **Sign Up:** Create your account using the provided registration form.
