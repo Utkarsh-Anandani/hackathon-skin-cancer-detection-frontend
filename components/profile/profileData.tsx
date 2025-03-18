@@ -5,7 +5,7 @@ import { LogOutIcon } from "lucide-react";
 export default function ProfileData(props: any) {
   return (
     <main className="w-full h-auto">
-      <div className="w-[60vw] mx-auto px-5 py-10 flex flex-col gap-8">
+      <div className="w-[90vw] md:w-[60vw] mx-auto px-2 md:px-5 py-10 flex flex-col gap-8">
         <div className="flex flex-row gap-5">
           <img
             width={90}

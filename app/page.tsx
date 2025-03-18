@@ -9,26 +9,26 @@ export default function Home() {
 
         {/* Hero Section */}
         <section className="bg-slate-700 text-white min-h-screen">
-          <div className="container h-screen mx-auto px-4 flex flex-row md:flex-row items-center">
+          <div className="container min-h-screen py-5 md:py-0 mx-auto px-4 flex flex-col-reverse gap-7 md:gap-0 md:flex-row items-center">
             <div className="md:w-3/5 mb-10 md:mb-0">
-              <h2 className="text-6xl font-bold mb-4">
+              <h2 className="text-3xl md:text-6xl font-bold mb-4">
                 Healthcare Access for Rural Communities
               </h2>
-              <p className="text-slate-200 text-2xl mb-14">
+              <p className="text-slate-200 text-lg md:text-2xl mb-14">
                 Connect with doctors, access medical services, get expert
                 consultaions and advices, and manage healthcare needs—even in
                 remote areas with limited connectivity.
               </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <a
-                  href="#download"
-                  className="bg-blue-500 hover:bg-blue-600 text-lg text-white font-bold py-5 px-8 rounded-lg transition text-center"
+                  href="/sign-in"
+                  className="bg-blue-500 hover:bg-blue-600 text-base md:text-lg text-white font-bold py-3 md:py-5 px-5 md:px-14 rounded-lg transition text-center"
                 >
-                  Download Now
+                  Login
                 </a>
                 <a
                   href="#how-it-works"
-                  className="bg-white hover:bg-slate-200 text-lg text-slate-800 font-bold py-5 px-8 rounded-lg transition text-center"
+                  className="bg-white hover:bg-slate-200 text-base md:text-lg text-slate-800 font-bold py-3 md:py-5 px-5 md:px-14 rounded-lg transition text-center"
                 >
                   Learn More
                 </a>
@@ -38,7 +38,7 @@ export default function Home() {
               <img
                 src="/hero_section.jpg"
                 alt="RuralMed App"
-                className="mx-auto w-[40vw] rounded-lg shadow-xl"
+                className="mx-auto w-[80vw] md:w-[40vw] rounded-lg shadow-xl"
               />
             </div>
           </div>
@@ -144,11 +144,10 @@ export default function Home() {
                   <span className="font-bold">1</span>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-center">
-                  Download the App
+                  Login to the App
                 </h3>
                 <p className="text-slate-600 text-center px-6">
-                  Available for Android and iOS, optimized for low storage and
-                  bandwidth.
+                  Login with your Phone Number
                 </p>
               </div>
 

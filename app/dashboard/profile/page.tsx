@@ -10,7 +10,7 @@ export default function ProfilePage() {
   const { userDetails } = useUserContext();
 
   return (
-    <main className="px-3 py-5">
+    <main className="w-screen md:w-[80vw] px-3 py-5">
       <PageHeader pageHeading={"User Profile"} />
       {userDetails ? (
         <ProfileData details={userDetails} profileImage={user?.imageUrl} />

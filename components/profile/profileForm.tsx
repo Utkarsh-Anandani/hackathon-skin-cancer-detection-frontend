@@ -57,8 +57,8 @@ export default function ProfileForm() {
   };
 
   return (
-    <main className="w-full h-auto my-10 mx-3">
-      <div className="w-[50vw] mx-auto">
+    <main className="w-full h-auto my-7 md:my-10 md:mx-3">
+      <div className="w-[90vw] md:w-[50vw] mx-auto">
         <Alert className="bg-blue-50 border-blue-200 border-2">
           <Info />
           <AlertTitle>Complete Your Profile!</AlertTitle>

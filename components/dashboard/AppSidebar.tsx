@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import AppIcon from "../AppIcon";
 import {
   Sidebar,
@@ -77,10 +77,12 @@ export default function AppSidebar() {
   ];
   return (
     <Sidebar>
-      <SidebarHeader className="flex flex-row items-center gap-3 py-5 px-4">
-        <AppIcon />
-        <span className="text-xl font-bold text-blue-500">RuralMed</span>
-      </SidebarHeader>
+      <a href="/">
+        <SidebarHeader className="flex flex-row items-center gap-3 py-5 px-4">
+          <AppIcon dim={8} />
+          <span className="text-xl font-bold text-blue-500">Medxo</span>
+        </SidebarHeader>
+      </a>
       <SidebarSeparator />
       <SidebarContent className="gap-0">
         <SidebarGroup>

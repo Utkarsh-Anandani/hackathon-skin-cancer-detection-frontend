@@ -67,19 +67,19 @@ export default function SCDPage() {
     }
   };
   return (
-    <main className="w-[70vw] px-3 py-5">
+    <main className="w-screen md:w-[70vw] px-3 py-5">
       <PageHeader pageHeading={"Skin Cancer Detection Test"} />
       <Alert className="bg-blue-50 border-blue-200 border-2 mt-7">
         <Info />
-        <AlertTitle>Don't consider the test report as final</AlertTitle>
-        <AlertDescription>
+        <AlertTitle className="text-sm md:text-base">Don't consider the test report as final</AlertTitle>
+        <AlertDescription className="text-sm md:text-base">
           This is an AI test, the result depends on picture quality, demographic
           factors, lighting etc. Doctor's consultation after the test is
           necessary.
         </AlertDescription>
       </Alert>
-      <div className="flex flex-row gap-24 mt-5 py-5 px-5">
-        <form className="w-4/6 flex flex-col gap-8" onSubmit={handleSubmit}>
+      <div className="flex flex-col-reverse md:flex-row gap-5 md:gap-24 mt-5 py-5 px-5">
+        <form className="md:w-4/6 flex flex-col gap-8" onSubmit={handleSubmit}>
           <div className="flex flex-col gap-2">
             <Label htmlFor="file">Upload a clear image of leison</Label>
             <Input
@@ -122,11 +122,11 @@ export default function SCDPage() {
           </div>
           <Button type="submit">Generate Report</Button>
         </form>
-        <div className="w-2/6 flex flex-col gap-5">
-          <Label className="text-center text-lg font-bold w-full" htmlFor="eg">
+        <div className="md:w-2/6 flex md:flex-col gap-5">
+          <Label className="text-center text-base md:text-lg font-bold w-full" htmlFor="eg">
             Example Leison image
           </Label>
-          <img id="eg" className="w-100" src="/leison.jpg" alt="" />
+          <img id="eg" className="w-50 md:w-100" src="/leison.jpg" alt="" />
         </div>
       </div>
     </main>

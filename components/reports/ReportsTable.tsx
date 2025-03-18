@@ -77,16 +77,16 @@ export default function ReportsTable() {
   }
 
   return (
-    <div className="mt-14 px-5">
-      <Table>
+    <div className="w-full mt-14 px-5 overflow-x-auto">
+      <Table className="text-sm md:text-base">
         <TableCaption>A list of your previous diagnosis reports</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[100px]">Report ID</TableHead>
-            <TableHead>Patients Name</TableHead>
-            <TableHead>Report Type</TableHead>
-            <TableHead>Reporting Date</TableHead>
-            <TableHead>Actions</TableHead>
+            <TableHead className="text-sm md:text-base">Report ID</TableHead>
+            <TableHead className="text-sm md:text-base">Patients Name</TableHead>
+            <TableHead className="text-sm md:text-base">Report Type</TableHead>
+            <TableHead className="text-sm md:text-base">Reporting Date</TableHead>
+            <TableHead className="text-sm md:text-base">Actions</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -94,18 +94,18 @@ export default function ReportsTable() {
             reports.map((report) => {
               return (
                 <TableRow key={report?._id}>
-                  <TableCell className="font-medium">{report?._id}</TableCell>
-                  <TableCell>{report?.fullName}</TableCell>
-                  <TableCell>
+                  <TableCell className="font-medium text-sm md:text-base">{report?._id}</TableCell>
+                  <TableCell className="text-sm md:text-base">{report?.fullName}</TableCell>
+                  <TableCell className="text-sm md:text-base">
                     {report?.type === "SC"
                       ? "Skin Cancer Detection"
                       : "Pneumonia Detection"}
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="text-sm md:text-base">
                     {new Date(report?.createdAt).toLocaleString()}
                   </TableCell>
-                  <TableCell>
-                    <Button
+                  <TableCell className="text-sm md:text-base">
+                    <Button className="p-2 md:p-3 text-sm md:text-base"
                       onClick={() =>
                         router.push(`/dashboard/reports/${report?._id}`)
                       }

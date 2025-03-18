@@ -1,5 +1,4 @@
 import AppIcon from "@/components/AppIcon";
-import { Button } from "@/components/ui/button";
 import {
   SignedIn,
   SignedOut,
@@ -13,26 +12,13 @@ export default function AppBar() {
     <header className="bg-slate-800 text-white shadow-md">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center space-x-2">
-          <AppIcon />
-          <h1 className="text-2xl font-bold">RuralMed</h1>
+          <AppIcon dim={8} />
+          <h1 className="text-lg md:text-2xl font-bold">Medxo</h1>
         </div>
         <nav>
-          <ul className="flex space-x-6">
+          <ul className="flex space-x-4 md:space-x-6">
             <li>
-              <a href="#features" className="hover:text-blue-500 transition">
-                Features
-              </a>
-            </li>
-            <li>
-              <a
-                href="#how-it-works"
-                className="hover:text-blue-500 transition"
-              >
-                How It Works
-              </a>
-            </li>
-            <li>
-              <a href="/dashboard" className="hover:text-blue-500 transition">
+              <a href="/dashboard/profile" className="hover:text-blue-500 transition">
                 Dashboard
               </a>
             </li>
@@ -41,7 +27,10 @@ export default function AppBar() {
               <SignUpButton />
             </SignedOut>
             <SignedIn>
-              <UserButton />
+              <UserButton
+                userProfileMode="navigation"
+                userProfileUrl="/dashboard/profile"
+              />
             </SignedIn>
           </ul>
         </nav>

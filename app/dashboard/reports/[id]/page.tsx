@@ -54,40 +54,39 @@ export default function ReportById() {
   }, [id]);
 
   return (
-    <main className="w-[80vw] px-3 py-5">
+    <main className="w-screen h-screen md:w-[80vw] md:h-auto px-3 py-5">
       <PageHeader pageHeading={`Detailed Report`} />
       {isLoading && (
-        <div className="w-full h-full">
+        <div className="w-[80vw] h-[80vh] flex items-center justify-center">
           <PageLoader />
         </div>
       )}
       {!isLoading && report ? (
-        <div className="max-w-4xl mx-auto p-4">
+        <div className="md:max-w-4xl mx-auto p-2 md:p-4">
           <Card className="shadow-lg rounded-2xl border border-gray-200">
             <CardHeader className="text-center">
-              <CardTitle className="text-3xl font-bold">
+              <CardTitle className="text-xl md:text-3xl font-bold">
                 Skin Cancer Diagnosis Report
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex flex-col md:flex-row items-center gap-4">
+            <CardContent className="px-3 md:px-6 space-y-4">
+              <div className="flex flex-row items-start md:items-center gap-4">
                 <img
-                  height={200}
-                  className="rounded-lg border border-gray-300 object-cover"
+                  className="h-[100px] md:h-[120px] rounded-lg border border-gray-300 object-cover"
                   src={user?.imageUrl}
                   alt=""
                 />
-                <div className="space-y-1 w-full">
-                  <p className="text-md">
+                <div className="space-y-1">
+                  <p className="text-sm md:text-base">
                     <strong>Full Name:</strong> {report.fullName}
                   </p>
-                  <p className="text-md">
+                  <p className="text-sm md:text-base">
                     <strong>Phone Number:</strong> {report.phoneNumber}
                   </p>
-                  <p className="text-md">
+                  <p className="text-sm md:text-base">
                     <strong>Age:</strong> {report.age || "N/A"}
                   </p>
-                  <p className="text-md">
+                  <p className="text-sm md:text-base">
                     <strong>Gender:</strong> {report.gender}
                   </p>
                 </div>
@@ -95,18 +94,18 @@ export default function ReportById() {
 
               <Separator />
 
-              <div className="flex flex-row gap-5 py-3">
-                <div className="space-y-1 w-5/7">
-                  <p className="text-md">
+              <div className="flex flex-col md:flex-row gap-5 py-3">
+                <div className="space-y-1 md:w-5/7">
+                  <p className="text-sm md:text-base">
                     <strong>Part:</strong> {report.part}
                   </p>
-                  <p className="text-md">
+                  <p className="text-sm md:text-base">
                     <strong>Description:</strong> {report.description}
                   </p>
-                  <p className="text-md">
+                  <p className="text-sm md:text-base">
                     <strong>Result:</strong> {report.result}
                   </p>
-                  <p className="text-md">
+                  <p className="text-sm md:text-base">
                     <strong>Accuracy:</strong>
                     <Badge className="ml-2 text-white bg-green-500">
                       {Math.round(parseFloat(report.accuracy) * 100)}%
@@ -117,7 +116,7 @@ export default function ReportById() {
                   </p>
                 </div>
                 <img
-                  className="rounded-lg border border-gray-300 object-cover w-2/7"
+                  className="w-[100px] md:h-auto rounded-lg border border-gray-300 object-cover md:w-2/7"
                   src={report.image}
                   alt=""
                 />
@@ -127,31 +126,31 @@ export default function ReportById() {
 
               {conditionDetails && (
                 <div className="pt-4">
-                  <h3 className="text-xl font-semibold">Condition Details</h3>
-                  <p className="text-gray-700 mt-2">
+                  <h3 className="text-base md:text-xl font-semibold">Condition Details</h3>
+                  <p className="text-gray-700 text-sm md:text-base mt-2">
                     {conditionDetails.description}
                   </p>
-                  <p className="mt-2">
+                  <p className="mt-2 text-sm md:text-base">
                     <strong>Potential Causes:</strong>
                   </p>
-                  <ul className="list-disc ml-6 text-gray-600">
+                  <ul className="list-disc ml-6 text-gray-600 text-sm md:text-base">
                     {conditionDetails.potential_causes.map(
                       (cause: any, index: any) => (
                         <li key={index}>{cause}</li>
                       )
                     )}
                   </ul>
-                  <p className="mt-2">
+                  <p className="mt-2 text-sm md:text-base">
                     <strong>Precautions:</strong>
                   </p>
-                  <ul className="list-disc ml-6 text-gray-600">
+                  <ul className="list-disc ml-6 text-gray-600 text-sm md:text-base">
                     {conditionDetails.precautions.map(
                       (precaution: any, index: any) => (
                         <li key={index}>{precaution}</li>
                       )
                     )}
                   </ul>
-                  <p className="mt-2 font-bold">
+                  <p className="mt-2 font-bold text-sm md:text-base">
                     Danger Scale: {conditionDetails.danger_scale}/5
                   </p>
                 </div>
