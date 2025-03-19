@@ -12,16 +12,19 @@ import {
   SidebarMenuItem,
   SidebarSeparator,
 } from "../ui/sidebar";
-import { UserSearch, Stethoscope, File } from "lucide-react";
+import { UserSearch, Stethoscope, File, Lock } from "lucide-react";
 import { SignedIn, UserButton, useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useUserContext } from "@/app/context/UserContext";
+import { usePathname } from "next/navigation";
 
 export default function AppSidebar() {
   const { user } = useUser();
   const { userDetails, setUserDetails } = useUserContext();
   const [isLoading, setIsLoading] = useState(true);
+
+  const path = usePathname();
 
   useEffect(() => {
     if (!user) return;
@@ -52,14 +55,16 @@ export default function AppSidebar() {
 
   const serviceItems = [
     {
-      title: "Skin Cancer Detection",
+      title: "Skin Cancer Test",
       url: "/dashboard/skin",
       icon: UserSearch,
+      disabled: false,
     },
     {
-      title: "Pneumonia Detection",
+      title: "Pneumonia Test",
       url: "/dashboard/pneumonia",
       icon: UserSearch,
+      disabled: true,
     },
   ];
 
@@ -68,11 +73,13 @@ export default function AppSidebar() {
       title: "Past Reports",
       url: "/dashboard/reports",
       icon: File,
+      disabled: false,
     },
     {
       title: "AI Doctor",
       url: "/dashboard/aidoc",
       icon: Stethoscope,
+      disabled: false,
     },
   ];
   return (
@@ -91,12 +98,15 @@ export default function AppSidebar() {
             {serviceItems.map((item) => (
               <SidebarMenuItem
                 key={item.title}
-                className="hover:bg-gray-200 rounded-md"
+                className={`hover:bg-gray-200 rounded-md ${
+                  item.url === path ? "bg-gray-200" : ""
+                }`}
               >
                 <SidebarMenuButton asChild className="hover:bg-gray-200">
-                  <a href={item.url}>
+                  <a href={item.disabled ? "#" : item.url}>
                     <item.icon height={80} />
                     <span className="text-md font-semibold">{item.title}</span>
+                    {item.disabled && <Lock className="ml-8 opacity-50" />}
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -109,12 +119,15 @@ export default function AppSidebar() {
             {consultaionItems.map((item) => (
               <SidebarMenuItem
                 key={item.title}
-                className="hover:bg-gray-200 rounded-md"
+                className={`hover:bg-gray-200 rounded-md ${
+                  item.url === path ? "bg-gray-200" : ""
+                }`}
               >
                 <SidebarMenuButton asChild className="hover:bg-gray-200">
                   <a href={item.url}>
                     <item.icon />
                     <span className="text-md font-semibold">{item.title}</span>
+                    {item.disabled && <Lock />}
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>

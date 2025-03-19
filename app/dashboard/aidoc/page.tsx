@@ -1,5 +1,6 @@
 "use client";
 import PageHeader from "@/components/dashboard/PageHeader";
+import SmallLoader from "@/components/SmallLoader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -17,6 +18,7 @@ export default function AIDoctor() {
     },
   ]);
   const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const { user } = useUser();
 
   const handleSend = async () => {
@@ -25,6 +27,7 @@ export default function AIDoctor() {
     const userMessage = { role: "user", content: input };
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
+    setIsLoading(true);
 
     try {
       const response = await axios.post(
@@ -36,8 +39,10 @@ export default function AIDoctor() {
 
       const botMessage = { role: "bot", content: response.data.data };
       setMessages((prev) => [...prev, botMessage]);
+      setIsLoading(false);
     } catch (error) {
       console.error("Error fetching response:", error);
+      setIsLoading(false);
     }
   };
 
@@ -51,8 +56,8 @@ export default function AIDoctor() {
               <div
                 key={index}
                 className={`flex ${
-                  msg.role === "user" && "flex-row-reverse"
-                } gap-3 items-center`}
+                  msg.role === "user" ? "flex-row-reverse" : ""
+                } gap-3 items-start`}
               >
                 <img
                   className="w-7 h-7 md:w-10 md:h-10 rounded-full shadow-sm"
@@ -82,8 +87,12 @@ export default function AIDoctor() {
           placeholder="Ask me anything..."
           className="text-sm md:text-base flex-1"
         />
-        <Button onClick={handleSend} className="bg-blue-500">
-          Send
+        <Button
+          disabled={isLoading}
+          onClick={handleSend}
+          className="bg-blue-500"
+        >
+          {isLoading ? <SmallLoader /> : "Send"}
         </Button>
       </div>
     </main>

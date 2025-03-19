@@ -1,11 +1,18 @@
 "use client";
 import { useUserContext } from "@/app/context/UserContext";
 import PageHeader from "@/components/dashboard/PageHeader";
+import SmallLoader from "@/components/SmallLoader";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import axios from "axios";
 import { Info } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -17,6 +24,7 @@ export default function SCDPage() {
   const [part, setPart] = useState("");
   const [description, setDescription] = useState("");
   const [filePreview, setFilePreview] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { userDetails } = useUserContext();
   const router = useRouter();
@@ -30,12 +38,17 @@ export default function SCDPage() {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    setIsLoading(true);
     if (!userDetails) {
       toast("Please complete your profile and try again");
       router.push("/dashboard/profile");
+      setIsLoading(false);
+      return;
     }
     if (!file) {
       toast("File is Required");
+      setIsLoading(false);
+      return;
     }
     const formData = new FormData();
     formData.append("file", file as Blob);
@@ -56,14 +69,17 @@ export default function SCDPage() {
 
       if (report.status === 200) {
         toast(report.data.message);
+        setIsLoading(false);
         setTimeout(() => {
           router.push(`/dashboard/reports/${report.data.data._id}`);
-        }, 5000);
+        }, 3000);
       } else {
+        setIsLoading(false);
         toast(report.data.message);
       }
     } catch (error: any) {
       toast(error.message);
+      setIsLoading(false);
     }
   };
   return (
@@ -71,7 +87,9 @@ export default function SCDPage() {
       <PageHeader pageHeading={"Skin Cancer Detection Test"} />
       <Alert className="bg-blue-50 border-blue-200 border-2 mt-7">
         <Info />
-        <AlertTitle className="text-sm md:text-base">Don't consider the test report as final</AlertTitle>
+        <AlertTitle className="text-sm md:text-base">
+          Don't consider the test report as final
+        </AlertTitle>
         <AlertDescription className="text-sm md:text-base">
           This is an AI test, the result depends on picture quality, demographic
           factors, lighting etc. Doctor's consultation after the test is
@@ -107,6 +125,7 @@ export default function SCDPage() {
               id="part"
               type="text"
               placeholder="on upper part of torso"
+              required
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -118,12 +137,36 @@ export default function SCDPage() {
               onChange={(e) => setDescription(e.target.value)}
               id="desc"
               placeholder="a blackish patch, smaller than a coin, a little bumped and reddish on borders"
+              required
             />
           </div>
-          <Button type="submit">Generate Report</Button>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  className={
+                    userDetails || isLoading
+                      ? "cursor-pointer bg-blue-500"
+                      : "cursor-not-allowed opacity-50 bg-blue-500"
+                  }
+                  type="submit"
+                >
+                  {isLoading ? <SmallLoader /> : "Generate Report"}
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="bottom" align="start">
+                {userDetails
+                  ? "Submit Details"
+                  : "Complete your profile to access services"}
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </form>
         <div className="md:w-2/6 flex md:flex-col gap-5">
-          <Label className="text-center text-base md:text-lg font-bold w-full" htmlFor="eg">
+          <Label
+            className="text-center text-base md:text-lg font-bold w-full"
+            htmlFor="eg"
+          >
             Example Leison image
           </Label>
           <img id="eg" className="w-50 md:w-100" src="/leison.jpg" alt="" />

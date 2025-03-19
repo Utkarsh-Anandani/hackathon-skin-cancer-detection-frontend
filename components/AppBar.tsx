@@ -18,13 +18,20 @@ export default function AppBar() {
         <nav>
           <ul className="flex space-x-4 md:space-x-6">
             <li>
-              <a href="/dashboard/profile" className="hover:text-blue-500 transition">
+              <a
+                href="/dashboard/profile"
+                className="hover:text-blue-500 transition"
+              >
                 Dashboard
               </a>
             </li>
             <SignedOut>
-              <SignInButton />
-              <SignUpButton />
+              <div className="hover:text-blue-500 transition">
+                <SignInButton />
+              </div>
+              <div className="hover:text-blue-500 transition">
+                <SignUpButton />
+              </div>
             </SignedOut>
             <SignedIn>
               <UserButton
