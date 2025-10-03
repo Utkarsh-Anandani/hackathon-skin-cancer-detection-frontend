@@ -146,8 +146,8 @@ export default function SCDPage() {
                 <Button
                   className={
                     userDetails || isLoading
-                      ? "cursor-pointer bg-blue-500"
-                      : "cursor-not-allowed opacity-50 bg-blue-500"
+                      ? "cursor-pointer bg-blue-500 hover:bg-blue-800"
+                      : "cursor-not-allowed opacity-50 bg-blue-500 hover:bg-blue-800"
                   }
                   type="submit"
                 >
